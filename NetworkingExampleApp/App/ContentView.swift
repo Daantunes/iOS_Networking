@@ -1,19 +1,43 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+  @State var rings: [Ring] = []
+  
+  var body: some View {
+    NavigationView {
+      VStack {
+        List {
+          ForEach(rings, id: \.id) { ring in
+            Text(ring.name)
+          }
         }
-        .padding()
+        GetRings(rings: $rings)
+      }
+      .listStyle(.inset)
+      .navigationTitle("Rings")
     }
+  }
+}
+
+struct GetRings: View {
+  @Binding var rings: [Ring]
+
+  var body: some View {
+    Button("Get Rings") {
+      RequestManager().sendRequest(router: .rings, responseModel: [Ring].self) { completion in
+        switch completion {
+          case .success(let rings):
+            self.rings = rings
+          case .failure(let failure):
+            print(failure)
+        }
+      }
+    }
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+  static var previews: some View {
+    ContentView()
+  }
 }
