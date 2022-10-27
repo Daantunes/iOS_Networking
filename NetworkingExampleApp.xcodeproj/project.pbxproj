@@ -16,6 +16,7 @@
 		EDF2B0D4290952C500864091 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2B0D1290952C500864091 /* RequestError.swift */; };
 		EDF2B0D72909692C00864091 /* Rings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2B0D62909692C00864091 /* Rings.swift */; };
 		EDF2B0DB29097AC100864091 /* CreateRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2B0DA29097AC100864091 /* CreateRingView.swift */; };
+		EDF2B0DD290A7E9F00864091 /* UpdateRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2B0DC290A7E9F00864091 /* UpdateRingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		EDF2B0D1290952C500864091 /* RequestError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		EDF2B0D62909692C00864091 /* Rings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rings.swift; sourceTree = "<group>"; };
 		EDF2B0DA29097AC100864091 /* CreateRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRingView.swift; sourceTree = "<group>"; };
+		EDF2B0DC290A7E9F00864091 /* UpdateRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				ED47D56929094A2B00BB32FA /* RingsView.swift */,
 				ED47D56729094A2B00BB32FA /* NetworkingExampleApp.swift */,
 				EDF2B0DA29097AC100864091 /* CreateRingView.swift */,
+				EDF2B0DC290A7E9F00864091 /* UpdateRingView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				EDF2B0D2290952C500864091 /* Router.swift in Sources */,
 				ED47D56829094A2B00BB32FA /* NetworkingExampleApp.swift in Sources */,
 				EDF2B0DB29097AC100864091 /* CreateRingView.swift in Sources */,
+				EDF2B0DD290A7E9F00864091 /* UpdateRingView.swift in Sources */,
 				EDF2B0D3290952C500864091 /* RequestManager.swift in Sources */,
 				EDF2B0D72909692C00864091 /* Rings.swift in Sources */,
 			);

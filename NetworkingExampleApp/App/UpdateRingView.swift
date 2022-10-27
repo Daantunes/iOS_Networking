@@ -1,11 +1,17 @@
 import SwiftUI
 
-struct CreateRingView: View {
+struct UpdateRingView: View {
   @Environment(\.presentationMode) var presentationMode
   @Environment(\.dismiss) private var dismiss
   @State private var buttonClicked = false
-  
-  @State var ringName: String = ""
+
+  let ring: Ring
+  @State var ringName: String
+
+  init(ring: Ring) {
+    self.ring = ring
+    _ringName = State(initialValue: ring.name)
+  }
 
   var body: some View {
     VStack(alignment: .leading) {
@@ -18,14 +24,14 @@ struct CreateRingView: View {
     }
     .padding()
     .navigationBarItems(trailing: Button(action: {}) {
-      addButton
+      doneButton
     })
   }
 
-  private var addButton: some View {
-    Button("Add") {
+  private var doneButton: some View {
+    Button("Done") {
       buttonClicked = true
-      RequestManager().sendRequest(router: .createRing(name: ringName), responseModel: Ring.self) { completion in
+      RequestManager().sendRequest(router: .updateRing(id: ring.id, name: ringName), responseModel: Ring.self) { completion in
         buttonClicked = false
         switch completion {
           case .success:
@@ -41,8 +47,8 @@ struct CreateRingView: View {
   }
 }
 
-struct CreateRingView_Previews: PreviewProvider {
+struct UpdateRingView_Previews: PreviewProvider {
   static var previews: some View {
-    CreateRingView()
+    UpdateRingView(ring: Ring(id: "4", name: "Dummy", languages: nil))
   }
 }
