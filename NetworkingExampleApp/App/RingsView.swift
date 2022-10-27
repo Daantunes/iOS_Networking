@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ContentView: View {
+struct RingsView: View {
   @State var rings: [Ring] = []
   
   var body: some View {
@@ -15,6 +15,16 @@ struct ContentView: View {
       }
       .listStyle(.inset)
       .navigationTitle("Rings")
+      .navigationBarTitleDisplayMode(.inline)
+      .navigationBarItems(trailing: Button(action: {}) {
+        addButton
+      })
+    }
+  }
+
+  private var addButton: some View {
+    NavigationLink(destination: CreateRingView()) {
+      Image(systemName: "plus")
     }
   }
 }
@@ -36,8 +46,8 @@ struct GetRings: View {
   }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct RingsView_Previews: PreviewProvider {
   static var previews: some View {
-    ContentView()
+    RingsView()
   }
 }
