@@ -3,7 +3,7 @@ import Foundation
 struct Ring: Codable {
   let id: String
   let name: String
-  let languages: [Language]
+  let languages: [Language]?
 }
 
 struct Language: Codable {

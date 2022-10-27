@@ -2,6 +2,7 @@ import Foundation
 
 enum Router {
   case rings
+  case createRing(name: String)
 
   var scheme: String {
     return "https"
@@ -12,15 +13,35 @@ enum Router {
   }
 
   var path: String {
-    return "/api/v1/rings"
+    switch self {
+      case .rings, .createRing:
+        return "/api/v1/rings"
+    }
   }
 
   var method: String {
-    return "GET"
+    switch self {
+      case .rings:
+        return "GET"
+      case .createRing:
+        return "POST"
+    }
+  }
+
+  var body: Data? {
+    switch self {
+      case .rings:
+        return nil
+      case .createRing(let name):
+        var data = [String:Any]()
+        data["name"] = name
+
+        return try? JSONSerialization.data(withJSONObject: data)
+    }
   }
 
   var headers: [String: String] {
-    let header = ["Accept": "application/json"]
+    let header = ["Content-Type": "application/json"]
 
     return header
   }
@@ -37,6 +58,7 @@ enum Router {
 
     var urlRequest = URLRequest(url: url)
     urlRequest.httpMethod = method
+    urlRequest.httpBody = body
 
     for (key, value) in headers {
       urlRequest.setValue(value, forHTTPHeaderField: key)

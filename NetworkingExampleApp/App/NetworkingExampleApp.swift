@@ -4,7 +4,7 @@ import SwiftUI
 struct NetworkingExampleApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RingsView()
         }
     }
 }
