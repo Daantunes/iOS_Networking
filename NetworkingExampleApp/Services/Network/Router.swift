@@ -4,6 +4,7 @@ enum Router {
   case rings
   case createRing(name: String)
   case updateRing(id: String, name: String)
+  case deleteRing(id: String)
 
   var scheme: String {
     return "https"
@@ -18,7 +19,7 @@ enum Router {
       case .rings, .createRing:
         return "/api/v1/rings"
 
-      case .updateRing(let id, _):
+      case .updateRing(let id, _), .deleteRing(let id):
         return "/api/v1/rings/\(id)"
     }
   }
@@ -31,12 +32,14 @@ enum Router {
         return "POST"
       case .updateRing:
         return "PUT"
+      case .deleteRing:
+        return "DELETE"
     }
   }
 
   var body: Data? {
     switch self {
-      case .rings:
+      case .rings, .deleteRing:
         return nil
       case .createRing(let name), .updateRing(_, let name):
         var data = [String:Any]()

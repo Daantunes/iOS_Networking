@@ -13,7 +13,14 @@ struct RingsView: View {
               Text(ring.name)
             }
           }
+          .onDelete() { indexSet in
+            for index in indexSet {
+              deleteRing(id: rings[index].id)
+              rings.remove(at: index)
+            }
+          }
         }
+        
         Button("Get Rings") {
           getRings()
         }
@@ -44,6 +51,17 @@ struct RingsView: View {
       switch completion {
         case .success(let rings):
           self.rings = rings
+        case .failure(let failure):
+          print(failure)
+      }
+    }
+  }
+
+  private func deleteRing(id: String) {
+    RequestManager().sendRequest(router: .deleteRing(id: id), responseModel: Ring.self) { completion in
+      switch completion {
+        case .success:
+          getRings()
         case .failure(let failure):
           print(failure)
       }
