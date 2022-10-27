@@ -3,6 +3,7 @@ import Foundation
 enum Router {
   case rings
   case createRing(name: String)
+  case updateRing(id: String, name: String)
 
   var scheme: String {
     return "https"
@@ -16,6 +17,9 @@ enum Router {
     switch self {
       case .rings, .createRing:
         return "/api/v1/rings"
+
+      case .updateRing(let id, _):
+        return "/api/v1/rings/\(id)"
     }
   }
 
@@ -25,6 +29,8 @@ enum Router {
         return "GET"
       case .createRing:
         return "POST"
+      case .updateRing:
+        return "PUT"
     }
   }
 
@@ -32,7 +38,7 @@ enum Router {
     switch self {
       case .rings:
         return nil
-      case .createRing(let name):
+      case .createRing(let name), .updateRing(_, let name):
         var data = [String:Any]()
         data["name"] = name
 

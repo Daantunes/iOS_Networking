@@ -2,16 +2,25 @@ import SwiftUI
 
 struct RingsView: View {
   @State var rings: [Ring] = []
+  @State private var buttonClicked = false
   
   var body: some View {
     NavigationView {
       VStack {
         List {
           ForEach(rings, id: \.id) { ring in
-            Text(ring.name)
+            NavigationLink(destination: UpdateRingView(ring: ring)) {
+              Text(ring.name)
+            }
           }
         }
-        GetRings(rings: $rings)
+        Button("Get Rings") {
+          getRings()
+        }
+        .disabled(buttonClicked)
+      }
+      .onAppear() {
+        getRings()
       }
       .listStyle(.inset)
       .navigationTitle("Rings")
@@ -27,20 +36,16 @@ struct RingsView: View {
       Image(systemName: "plus")
     }
   }
-}
 
-struct GetRings: View {
-  @Binding var rings: [Ring]
-
-  var body: some View {
-    Button("Get Rings") {
-      RequestManager().sendRequest(router: .rings, responseModel: [Ring].self) { completion in
-        switch completion {
-          case .success(let rings):
-            self.rings = rings
-          case .failure(let failure):
-            print(failure)
-        }
+  private func getRings() {
+    buttonClicked = true
+    RequestManager().sendRequest(router: .rings, responseModel: [Ring].self) { completion in
+      buttonClicked = false
+      switch completion {
+        case .success(let rings):
+          self.rings = rings
+        case .failure(let failure):
+          print(failure)
       }
     }
   }
