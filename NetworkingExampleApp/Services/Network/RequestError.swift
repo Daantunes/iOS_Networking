@@ -8,5 +8,6 @@ enum RequestError: Error {
   case noResponse
   case notFound
   case unexpectedStatusCode(_ code: Int)
+  case unauthorized
   case unknown(Data?, URLResponse, Error?)
 }

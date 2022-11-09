@@ -3,24 +3,32 @@ import Foundation
 enum Router {
   case rings
   case createRing(name: String)
-  case updateRing(id: String, name: String)
-  case deleteRing(id: String)
+  case updateRing(id: UUID, name: String)
+  case deleteRing(id: UUID)
+  case login(username: String, password: String)
 
   var scheme: String {
-    return "https"
+    return "http"
   }
 
   var domain: String {
-    return "6356997e2712d01e14f7fb39.mockapi.io"
+    return "localhost"
+  }
+
+  var port: Int {
+    return 8080
   }
 
   var path: String {
     switch self {
       case .rings, .createRing:
-        return "/api/v1/rings"
+        return "/api/rings"
 
       case .updateRing(let id, _), .deleteRing(let id):
-        return "/api/v1/rings/\(id)"
+        return "/api/rings/\(id)"
+
+      case .login:
+        return "/api/users/login"
     }
   }
 
@@ -28,7 +36,7 @@ enum Router {
     switch self {
       case .rings:
         return "GET"
-      case .createRing:
+      case .createRing, .login:
         return "POST"
       case .updateRing:
         return "PUT"
@@ -39,7 +47,7 @@ enum Router {
 
   var body: Data? {
     switch self {
-      case .rings, .deleteRing:
+      case .rings, .deleteRing, .login:
         return nil
       case .createRing(let name), .updateRing(_, let name):
         var data = [String:Any]()
@@ -50,7 +58,20 @@ enum Router {
   }
 
   var headers: [String: String] {
-    let header = ["Content-Type": "application/json"]
+    var header = ["Content-Type": "application/json"]
+
+    switch self {
+      case .login(let username, let password):
+        guard let loginString = "\(username):\(password)".data(using: .utf8)?.base64EncodedString() else {
+          fatalError("Failed to encode credentials")
+        }
+
+        header["Authorization"] = "Basic \(loginString)"
+      default:
+        if let token = Session.shared.accessToken {
+          header["Authorization"] = "Bearer \(token)"
+        }
+    }
 
     return header
   }
@@ -59,6 +80,7 @@ enum Router {
     var components = URLComponents()
     components.scheme = scheme
     components.host = domain
+    components.port = port
     components.path = path
 
     guard let url = components.url else {

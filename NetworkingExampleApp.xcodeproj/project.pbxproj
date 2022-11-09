@@ -11,10 +11,16 @@
 		ED47D56A29094A2B00BB32FA /* RingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED47D56929094A2B00BB32FA /* RingsView.swift */; };
 		ED47D56C29094A2C00BB32FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED47D56B29094A2C00BB32FA /* Assets.xcassets */; };
 		ED47D56F29094A2C00BB32FA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED47D56E29094A2C00BB32FA /* Preview Assets.xcassets */; };
+		EDC90720291AA79100DEE3B7 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC9071F291AA79100DEE3B7 /* Language.swift */; };
+		EDC90724291AA87C00DEE3B7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC90723291AA87C00DEE3B7 /* LoginView.swift */; };
+		EDC9072B291AB27700DEE3B7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC9072A291AB27700DEE3B7 /* User.swift */; };
+		EDC9072D291AB2A100DEE3B7 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC9072C291AB2A100DEE3B7 /* Token.swift */; };
+		EDC9072F291AB46A00DEE3B7 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC9072E291AB46A00DEE3B7 /* Session.swift */; };
+		EDC90731291BCCCD00DEE3B7 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC90730291BCCCD00DEE3B7 /* KeychainHelper.swift */; };
 		EDF2B0D2290952C500864091 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2B0CF290952C500864091 /* Router.swift */; };
 		EDF2B0D3290952C500864091 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2B0D0290952C500864091 /* RequestManager.swift */; };
 		EDF2B0D4290952C500864091 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2B0D1290952C500864091 /* RequestError.swift */; };
-		EDF2B0D72909692C00864091 /* Rings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2B0D62909692C00864091 /* Rings.swift */; };
+		EDF2B0D72909692C00864091 /* Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2B0D62909692C00864091 /* Ring.swift */; };
 		EDF2B0DB29097AC100864091 /* CreateRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2B0DA29097AC100864091 /* CreateRingView.swift */; };
 		EDF2B0DD290A7E9F00864091 /* UpdateRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2B0DC290A7E9F00864091 /* UpdateRingView.swift */; };
 /* End PBXBuildFile section */
@@ -25,10 +31,16 @@
 		ED47D56929094A2B00BB32FA /* RingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingsView.swift; sourceTree = "<group>"; };
 		ED47D56B29094A2C00BB32FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED47D56E29094A2C00BB32FA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EDC9071F291AA79100DEE3B7 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		EDC90723291AA87C00DEE3B7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		EDC9072A291AB27700DEE3B7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EDC9072C291AB2A100DEE3B7 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		EDC9072E291AB46A00DEE3B7 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		EDC90730291BCCCD00DEE3B7 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		EDF2B0CF290952C500864091 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		EDF2B0D0290952C500864091 /* RequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		EDF2B0D1290952C500864091 /* RequestError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
-		EDF2B0D62909692C00864091 /* Rings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rings.swift; sourceTree = "<group>"; };
+		EDF2B0D62909692C00864091 /* Ring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ring.swift; sourceTree = "<group>"; };
 		EDF2B0DA29097AC100864091 /* CreateRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRingView.swift; sourceTree = "<group>"; };
 		EDF2B0DC290A7E9F00864091 /* UpdateRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,6 +75,7 @@
 		ED47D56629094A2B00BB32FA /* NetworkingExampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				EDC90725291AA9BD00DEE3B7 /* Helpers */,
 				EDF2B0D5290968EE00864091 /* Model */,
 				EDF2B0CD290952A900864091 /* App */,
 				EDF2B0CC2909529F00864091 /* Services */,
@@ -80,6 +93,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		EDC90725291AA9BD00DEE3B7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EDC9072E291AB46A00DEE3B7 /* Session.swift */,
+				EDC90730291BCCCD00DEE3B7 /* KeychainHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		EDF2B0CC2909529F00864091 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +117,7 @@
 				ED47D56729094A2B00BB32FA /* NetworkingExampleApp.swift */,
 				EDF2B0DA29097AC100864091 /* CreateRingView.swift */,
 				EDF2B0DC290A7E9F00864091 /* UpdateRingView.swift */,
+				EDC90723291AA87C00DEE3B7 /* LoginView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -112,7 +135,10 @@
 		EDF2B0D5290968EE00864091 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EDF2B0D62909692C00864091 /* Rings.swift */,
+				EDF2B0D62909692C00864091 /* Ring.swift */,
+				EDC9071F291AA79100DEE3B7 /* Language.swift */,
+				EDC9072A291AB27700DEE3B7 /* User.swift */,
+				EDC9072C291AB2A100DEE3B7 /* Token.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -188,13 +214,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED47D56A29094A2B00BB32FA /* RingsView.swift in Sources */,
+				EDC90720291AA79100DEE3B7 /* Language.swift in Sources */,
 				EDF2B0D4290952C500864091 /* RequestError.swift in Sources */,
+				EDC9072D291AB2A100DEE3B7 /* Token.swift in Sources */,
+				EDC90724291AA87C00DEE3B7 /* LoginView.swift in Sources */,
 				EDF2B0D2290952C500864091 /* Router.swift in Sources */,
 				ED47D56829094A2B00BB32FA /* NetworkingExampleApp.swift in Sources */,
+				EDC9072F291AB46A00DEE3B7 /* Session.swift in Sources */,
 				EDF2B0DB29097AC100864091 /* CreateRingView.swift in Sources */,
 				EDF2B0DD290A7E9F00864091 /* UpdateRingView.swift in Sources */,
 				EDF2B0D3290952C500864091 /* RequestManager.swift in Sources */,
-				EDF2B0D72909692C00864091 /* Rings.swift in Sources */,
+				EDC90731291BCCCD00DEE3B7 /* KeychainHelper.swift in Sources */,
+				EDF2B0D72909692C00864091 /* Ring.swift in Sources */,
+				EDC9072B291AB27700DEE3B7 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

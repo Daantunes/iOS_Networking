@@ -5,37 +5,35 @@ struct RingsView: View {
   @State private var buttonClicked = false
   
   var body: some View {
-    NavigationView {
-      VStack {
-        List {
-          ForEach(rings, id: \.id) { ring in
-            NavigationLink(destination: UpdateRingView(ring: ring)) {
-              Text(ring.name)
-            }
-          }
-          .onDelete() { indexSet in
-            for index in indexSet {
-              deleteRing(id: rings[index].id)
-              rings.remove(at: index)
-            }
+    VStack {
+      List {
+        ForEach(rings) { ring in
+          NavigationLink(destination: UpdateRingView(ring: ring)) {
+            Text(ring.name)
           }
         }
-        
-        Button("Get Rings") {
-          getRings()
+        .onDelete() { indexSet in
+          for index in indexSet {
+            deleteRing(id: rings[index].id)
+            rings.remove(at: index)
+          }
         }
-        .disabled(buttonClicked)
       }
-      .onAppear() {
+
+      Button("Get Rings") {
         getRings()
       }
-      .listStyle(.inset)
-      .navigationTitle("Rings")
-      .navigationBarTitleDisplayMode(.inline)
-      .navigationBarItems(trailing: Button(action: {}) {
-        addButton
-      })
+      .disabled(buttonClicked)
     }
+    .onAppear() {
+      getRings()
+    }
+    .listStyle(.inset)
+    .navigationTitle("Rings")
+    .navigationBarTitleDisplayMode(.inline)
+    .navigationBarItems(trailing: Button(action: {}) {
+      addButton
+    })
   }
 
   private var addButton: some View {
@@ -57,8 +55,8 @@ struct RingsView: View {
     }
   }
 
-  private func deleteRing(id: String) {
-    RequestManager().sendRequest(router: .deleteRing(id: id), responseModel: Ring.self) { completion in
+  private func deleteRing(id: UUID) {
+    RequestManager().sendRequest(router: .deleteRing(id: id)) { completion in
       switch completion {
         case .success:
           getRings()

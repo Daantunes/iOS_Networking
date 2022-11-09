@@ -39,6 +39,32 @@ class RequestManager {
 
     dataTask?.resume()
   }
+
+  func sendRequest(router: Router, completion: @escaping (Result<Void, RequestError>) -> Void ) {
+    dataTask?.cancel()
+
+    guard let request = router.urlRequest() else {
+      completion(.failure(.invalidURL))
+
+      return
+    }
+
+    dataTask = session.dataTask(with: request) { data, response, error in
+      defer {
+        self.dataTask = nil
+      }
+
+      let handledResponse = self.handleResponse(
+        data: data,
+        response: response,
+        error: error
+      )
+
+      completion(handledResponse)
+    }
+
+    dataTask?.resume()
+  }
 }
 
 extension RequestManager {
@@ -63,15 +89,47 @@ extension RequestManager {
             let decodedData = try JSONDecoder().decode(responseModel.self, from: data)
 
             return .success(decodedData)
-          } catch let error {
-            print(error)
+          } catch {
             return .failure(.decodeFailed)
           }
         }
       case 400:
         return .failure(.badRequest)
+      case 401:
+        return .failure(.unauthorized)
       case 404:
          return .failure(.notFound)
+      default:
+        return .failure(.unexpectedStatusCode(response.statusCode))
+    }
+
+    return .failure(.unknown(data, response, error))
+  }
+
+  private func handleResponse(data: Data?, response: URLResponse?, error: Error?) -> Result<Void, RequestError> {
+    if let error = error {
+      return .failure(.error(error))
+    }
+
+    guard let response = response as? HTTPURLResponse else {
+      return .failure(.noResponse)
+    }
+
+    switch response.statusCode {
+      case 200...299:
+        if let data = data {
+          if data.isEmpty {
+            return .success(())
+          } else {
+            return .failure(.decodeFailed)
+          }
+        }
+      case 400:
+        return .failure(.badRequest)
+      case 401:
+        return .failure(.unauthorized)
+      case 404:
+        return .failure(.notFound)
       default:
         return .failure(.unexpectedStatusCode(response.statusCode))
     }

@@ -49,6 +49,6 @@ struct UpdateRingView: View {
 
 struct UpdateRingView_Previews: PreviewProvider {
   static var previews: some View {
-    UpdateRingView(ring: Ring(id: "4", name: "Dummy", languages: nil))
+    UpdateRingView(ring: Ring(id: UUID(), name: "Dummy", languages: []))
   }
 }
