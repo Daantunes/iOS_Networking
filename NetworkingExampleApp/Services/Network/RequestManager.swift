@@ -96,6 +96,7 @@ extension RequestManager {
       case 400:
         return .failure(.badRequest)
       case 401:
+        Session.shared.signOut()
         return .failure(.unauthorized)
       case 404:
          return .failure(.notFound)
@@ -127,6 +128,7 @@ extension RequestManager {
       case 400:
         return .failure(.badRequest)
       case 401:
+        Session.shared.signOut()
         return .failure(.unauthorized)
       case 404:
         return .failure(.notFound)
