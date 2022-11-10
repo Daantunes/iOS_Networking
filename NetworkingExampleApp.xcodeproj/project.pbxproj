@@ -17,6 +17,7 @@
 		EDC9072D291AB2A100DEE3B7 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC9072C291AB2A100DEE3B7 /* Token.swift */; };
 		EDC9072F291AB46A00DEE3B7 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC9072E291AB46A00DEE3B7 /* Session.swift */; };
 		EDC90731291BCCCD00DEE3B7 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC90730291BCCCD00DEE3B7 /* KeychainHelper.swift */; };
+		EDC90734291CFCA800DEE3B7 /* LanguageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC90733291CFCA800DEE3B7 /* LanguageDetailView.swift */; };
 		EDF2B0D2290952C500864091 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2B0CF290952C500864091 /* Router.swift */; };
 		EDF2B0D3290952C500864091 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2B0D0290952C500864091 /* RequestManager.swift */; };
 		EDF2B0D4290952C500864091 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2B0D1290952C500864091 /* RequestError.swift */; };
@@ -37,6 +38,7 @@
 		EDC9072C291AB2A100DEE3B7 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		EDC9072E291AB46A00DEE3B7 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		EDC90730291BCCCD00DEE3B7 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
+		EDC90733291CFCA800DEE3B7 /* LanguageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageDetailView.swift; sourceTree = "<group>"; };
 		EDF2B0CF290952C500864091 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		EDF2B0D0290952C500864091 /* RequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		EDF2B0D1290952C500864091 /* RequestError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				EDF2B0DA29097AC100864091 /* CreateRingView.swift */,
 				EDF2B0DC290A7E9F00864091 /* UpdateRingView.swift */,
 				EDC90723291AA87C00DEE3B7 /* LoginView.swift */,
+				EDC90733291CFCA800DEE3B7 /* LanguageDetailView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				EDF2B0DB29097AC100864091 /* CreateRingView.swift in Sources */,
 				EDF2B0DD290A7E9F00864091 /* UpdateRingView.swift in Sources */,
 				EDF2B0D3290952C500864091 /* RequestManager.swift in Sources */,
+				EDC90734291CFCA800DEE3B7 /* LanguageDetailView.swift in Sources */,
 				EDC90731291BCCCD00DEE3B7 /* KeychainHelper.swift in Sources */,
 				EDF2B0D72909692C00864091 /* Ring.swift in Sources */,
 				EDC9072B291AB27700DEE3B7 /* User.swift in Sources */,
