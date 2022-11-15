@@ -17,11 +17,7 @@ final class Session {
   }
 
   func signIn(username: String, password: String, completion: @escaping (RequestError?)-> Void) {
-    RequestManager()
-      .sendRequest(
-        router: .login(username: username, password: password),
-        responseModel: Token.self
-      ) { [weak self] result in
+    APIService.shared.loginUser(username: username, password: password) { [weak self] result in
         switch result {
           case .success(let token):
             let auth = Auth(accessToken: token.value)

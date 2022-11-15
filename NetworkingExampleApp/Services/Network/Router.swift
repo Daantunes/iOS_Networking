@@ -8,6 +8,7 @@ enum Router {
   case updateRing(id: UUID, name: String)
   case deleteRing(id: UUID)
   case getRingLanguages(id: UUID)
+  case updateRingLanguages(id: UUID, languages: [Language])
 
   case createLanguage(name:String, ringID: UUID)
   case updateLanguage(id: UUID, name: String)
@@ -36,7 +37,7 @@ enum Router {
       case .login:
         return "/api/users/login"
 
-      case .getRingLanguages(let id):
+      case .getRingLanguages(let id), .updateRingLanguages(let id, _):
         return "/api/rings/\(id)/languages"
 
       case .createLanguage:
@@ -53,7 +54,7 @@ enum Router {
         return "GET"
       case .createRing, .createLanguage, .login:
         return "POST"
-      case .updateRing, .updateLanguage:
+      case .updateRing, .updateLanguage, .updateRingLanguages:
         return "PUT"
       case .deleteRing, .deleteLanguage:
         return "DELETE"
@@ -71,6 +72,11 @@ enum Router {
         var data = [String:Any]()
         data["name"] = name
         data["ringID"] = "\(ringID)"
+
+        return try? JSONSerialization.data(withJSONObject: data)
+      case .updateRingLanguages(_, let languages):
+        var data = [String]()
+        data = languages.map { $0.name }
 
         return try? JSONSerialization.data(withJSONObject: data)
       default:
