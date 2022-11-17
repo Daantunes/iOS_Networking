@@ -2,7 +2,7 @@ import SwiftUI
 
 struct RingDetailView: View {
   @Environment(\.dismiss) private var dismiss
-  @ObservedObject var viewModel: RingDetailViewModel
+  @StateObject var viewModel: RingDetailViewModel
 
   var body: some View {
     VStack(alignment: .leading) {

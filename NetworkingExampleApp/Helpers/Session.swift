@@ -4,12 +4,20 @@ import Foundation
 class SessionStatus: ObservableObject {
   static let shared = SessionStatus()
   
-  @Published var isLoggedIn = Session.shared.accessToken != nil
+  @Published var isLoggedOut = {
+    Session.shared.accessToken == nil
+  }()
 }
 
 final class Session {
   static let shared = Session()
-  private(set) var accessToken: String?
+  private(set) var accessToken: String? {
+    didSet {
+      DispatchQueue.main.async { [weak self] in
+        SessionStatus.shared.isLoggedOut = self?.accessToken == nil
+      }
+    }
+  }
 
   init(isLoggedIn: Bool = false, accessToken: String? = nil) {
     let auth = KeychainHelper.shared.read(service: "tokens", account: "user", type: Auth.self)
