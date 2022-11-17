@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct RingsView: View {
-  @ObservedObject var viewModel: RingsViewModel
+  @StateObject var viewModel: RingsViewModel
 
   private let colors = [
     UIColor(named: "GreenColor")!,

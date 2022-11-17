@@ -4,8 +4,8 @@ import Foundation
 class SessionStatus: ObservableObject {
   static let shared = SessionStatus()
   
-  @Published var isLoggedIn = {
-    Session.shared.accessToken != nil
+  @Published var isLoggedOut = {
+    Session.shared.accessToken == nil
   }()
 }
 
@@ -14,7 +14,7 @@ final class Session {
   private(set) var accessToken: String? {
     didSet {
       DispatchQueue.main.async { [weak self] in
-        SessionStatus.shared.isLoggedIn = self?.accessToken != nil
+        SessionStatus.shared.isLoggedOut = self?.accessToken == nil
       }
     }
   }

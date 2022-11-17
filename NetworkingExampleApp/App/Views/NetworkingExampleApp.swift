@@ -7,11 +7,10 @@ struct NetworkingExampleApp: App {
   var body: some Scene {
     WindowGroup {
       NavigationView {
-        if sessionStatus.isLoggedIn {
           RingsView(viewModel: RingsViewModel())
-        } else {
-          LoginView()
-        }
+          .sheet(isPresented: $sessionStatus.isLoggedOut) {
+            LoginView()
+          }
       }
       .navigationViewStyle(.stack)
       .environmentObject(sessionStatus)

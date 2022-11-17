@@ -28,7 +28,7 @@ struct LoginView: View {
               errorMessage = "Error: \(error)"
             } else {
               DispatchQueue.main.async {
-                sessionStatus.isLoggedIn = true
+                sessionStatus.isLoggedOut = false
               }
             }
           }

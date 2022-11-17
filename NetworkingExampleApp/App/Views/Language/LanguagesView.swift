@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct LanguagesView: View {
-  @ObservedObject var viewModel: RingDetailViewModel
+  @StateObject var viewModel: RingDetailViewModel
   @State var titleLabel: String = ""
 
   var body: some View {
@@ -20,7 +20,6 @@ struct LanguagesView: View {
         }
         .onDelete() { indexSet in
           for index in indexSet {
-            viewModel.deleteLanguageFromRing()
             viewModel.tempLanguages.remove(at: index)
           }
         }

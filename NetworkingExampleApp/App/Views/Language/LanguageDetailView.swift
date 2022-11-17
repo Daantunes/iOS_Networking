@@ -2,7 +2,7 @@ import SwiftUI
 
 struct LanguageDetailView: View {
   @Environment(\.dismiss) private var dismiss
-  @ObservedObject var viewModel: LanguageDetailViewModel
+  @StateObject var viewModel: LanguageDetailViewModel
 
   var body: some View {
     VStack(alignment: .leading) {

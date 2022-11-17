@@ -14,8 +14,6 @@ class RequestManager {
     responseModel: T.Type,
     completion: @escaping (Result<T, RequestError>) -> Void
   ) {
-    dataTask?.cancel()
-
     guard let request = router.urlRequest() else {
       completion(.failure(.invalidURL))
 
@@ -41,8 +39,6 @@ class RequestManager {
   }
 
   func sendRequest(router: Router, completion: @escaping (Result<Void, RequestError>) -> Void ) {
-    dataTask?.cancel()
-
     guard let request = router.urlRequest() else {
       completion(.failure(.invalidURL))
 

@@ -63,18 +63,16 @@ class RingDetailViewModel: ObservableObject {
     if tempLanguages != ring.languages {
       updateLanguagesOfRing()
     }
-
-    dismiss = true
   }
 
-  func updateRingName() {
+  private func updateRingName() {
     guard let ring else { return }
 
     APIService.shared.updateRing(id: ring.id, name: ringName) { completion in
       switch completion {
         case .success:
           DispatchQueue.main.async {
-            self.dismiss = true
+            if !self.dismiss { self.dismiss = true }
           }
         case .failure(let error):
           print(error)
@@ -82,39 +80,15 @@ class RingDetailViewModel: ObservableObject {
     }
   }
 
-  func addLanguagesToRing(_ language: Language) {
-    guard let ring else { return }
-
-    APIService.shared.createLanguage(name: language.name, ringID: ring.id) { completion in
-      switch completion {
-        case .success:
-          break
-        case .failure(let error):
-          print(error)
-      }
-    }
-  }
-
-  func deleteLanguageFromRing() {
-    guard let ring else { return }
-
-    APIService.shared.deleteLanguage(id: ring.id) { completion in
-      switch completion {
-        case .success:
-          break
-        case .failure(let failure):
-          print(failure)
-      }
-    }
-  }
-
-  func updateLanguagesOfRing() {
+  private func updateLanguagesOfRing() {
     guard let ring else { return }
     
     APIService.shared.updateRingLanguages(ringID: ring.id, languages: tempLanguages) { completion in
       switch completion {
         case .success:
-          break
+          DispatchQueue.main.async {
+            if !self.dismiss { self.dismiss = true }
+          }
         case .failure(let failure):
           print(failure)
       }
