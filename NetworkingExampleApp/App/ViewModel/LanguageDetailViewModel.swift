@@ -9,19 +9,22 @@ class LanguageDetailViewModel: ObservableObject {
   let language: Language?
   var languageName: String
   var onSave: (_ language: Language) -> Void = { _ in }
+  var onAdd: (_ name: String) -> Void = { _ in }
 
-  init(state: DetailViewState, language: Language?) {
+  init(language: Language?) {
     self.language = language
     self.languageName = language == nil ? "" : language!.name
     self.state = language == nil ? .create : .read
   }
 
   func saveLanguage() {
-    if let language {
-      onSave(Language(id: language.id, name: languageName))
-    } else {
-      onSave(Language(id: UUID(), name: languageName))
-    }
-    self.dismiss = true
+    guard let language else { return }
+    onSave(Language(id: language.id, name: languageName))
+    dismiss = true
+  }
+
+  func addLanguage() {
+    onAdd(languageName)
+    dismiss = true
   }
 }

@@ -13,7 +13,7 @@ struct RingDetailView: View {
         .textFieldStyle(.roundedBorder)
         .disabled(viewModel.state == .read)
       Spacer(minLength: 50)
-      LanguagesView(viewModel: viewModel)
+      RingLanguagesView(viewModel: viewModel)
     }
     .padding()
     .onChange(of: viewModel.dismiss) {

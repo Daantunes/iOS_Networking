@@ -1,62 +1,43 @@
 import SwiftUI
 
 struct LanguagesView: View {
-  @StateObject var viewModel: RingDetailViewModel
-  @State var titleLabel: String = ""
+  @StateObject var viewModel: LanguagesViewModel
 
   var body: some View {
-    Text(titleLabel)
-      .font(.callout)
-      .bold()
-
-    VStack() {
+    VStack {
       List {
-        ForEach(viewModel.tempLanguages) { language in
-          NavigationLink(
-            destination: LanguageDetailView(viewModel: viewModel.generateLanguageViewModel(language: language))
-          ) {
-            Text(language.name)
+        ForEach(Array(viewModel.languages.enumerated()), id: \.offset) { index, language in
+          NavigationLink(destination: LanguageDetailView(viewModel: viewModel.generateViewModel(language: language))) {
+            LanguageCell(languageName: language.name)
           }
         }
         .onDelete() { indexSet in
           for index in indexSet {
-            viewModel.tempLanguages.remove(at: index)
-          }
-        }
-        .deleteDisabled(viewModel.state == .read)
-        .disabled(viewModel.state == .read)
-      }
-      .listStyle(.inset)
-
-      if viewModel.state == .edit {
-        Button(action: {}) {
-          NavigationLink(destination: LanguageDetailView(viewModel: viewModel.generateLanguageViewModel())) {
-            Text("Add Language")
+            viewModel.deleteLanguage(id: viewModel.languages[index].id)
           }
         }
       }
-
-      Spacer()
     }
     .onAppear() {
-      setTitleName()
+      viewModel.getLanguages()
     }
-    .onChange(of: viewModel.tempLanguages) { _ in
-      setTitleName()
-    }
+    .listStyle(.inset)
+    .navigationTitle("Languages")
+    .navigationBarTitleDisplayMode(.inline)
+    .navigationBarItems(trailing: Button(action: {}) {
+      addButton
+    })
   }
 
-  func setTitleName() {
-    if viewModel.tempLanguages.isEmpty {
-      titleLabel = ""
-    } else {
-      titleLabel = "Languages:"
+  private var addButton: some View {
+    NavigationLink(destination: LanguageDetailView(viewModel: viewModel.generateViewModel())) {
+      Image(systemName: "plus")
     }
   }
 }
 
 struct LanguagesView_Previews: PreviewProvider {
-  static var previews: some View {
-    LanguagesView(viewModel: RingDetailViewModel(ring: MockRing().ring))
-  }
+    static var previews: some View {
+      LanguagesView(viewModel: LanguagesViewModel())
+    }
 }

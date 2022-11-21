@@ -32,7 +32,7 @@ struct LanguageDetailView: View {
 
   private var addButton: some View {
     Button("Add") {
-      viewModel.saveLanguage()
+      viewModel.addLanguage()
     }
   }
 
@@ -54,6 +54,6 @@ struct LanguageDetailView: View {
 
 struct LanguageDetailView_Previews: PreviewProvider {
   static var previews: some View {
-    LanguageDetailView(viewModel: LanguageDetailViewModel(state: .read, language: nil))
+    LanguageDetailView(viewModel: LanguageDetailViewModel(language: nil))
   }
 }

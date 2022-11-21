@@ -11,6 +11,7 @@
 		ED47D56A29094A2B00BB32FA /* RingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED47D56929094A2B00BB32FA /* RingsView.swift */; };
 		ED47D56C29094A2C00BB32FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED47D56B29094A2C00BB32FA /* Assets.xcassets */; };
 		ED47D56F29094A2C00BB32FA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED47D56E29094A2C00BB32FA /* Preview Assets.xcassets */; };
+		ED60CE64292B8630006B95FE /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED60CE63292B8630006B95FE /* LanguageCell.swift */; };
 		EDC90720291AA79100DEE3B7 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC9071F291AA79100DEE3B7 /* Language.swift */; };
 		EDC90724291AA87C00DEE3B7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC90723291AA87C00DEE3B7 /* LoginView.swift */; };
 		EDC9072B291AB27700DEE3B7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC9072A291AB27700DEE3B7 /* User.swift */; };
@@ -23,9 +24,11 @@
 		EDC9073A291D0A3500DEE3B7 /* RingShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC90739291D0A3500DEE3B7 /* RingShape.swift */; };
 		EDC90743291D456200DEE3B7 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC90742291D456200DEE3B7 /* APIService.swift */; };
 		EDC90745291D4C8100DEE3B7 /* RingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC90744291D4C8100DEE3B7 /* RingDetailView.swift */; };
-		EDC90747291D594200DEE3B7 /* LanguagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC90746291D594200DEE3B7 /* LanguagesView.swift */; };
+		EDC90747291D594200DEE3B7 /* RingLanguagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC90746291D594200DEE3B7 /* RingLanguagesView.swift */; };
 		EDC9074D291E607900DEE3B7 /* RingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC9074C291E607900DEE3B7 /* RingsViewModel.swift */; };
 		EDC9074F291E635200DEE3B7 /* RingDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC9074E291E635200DEE3B7 /* RingDetailViewModel.swift */; };
+		EDD2FC1229279F2500132D72 /* LanguagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD2FC1129279F2500132D72 /* LanguagesView.swift */; };
+		EDD2FC142927A63400132D72 /* LanguagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD2FC132927A63400132D72 /* LanguagesViewModel.swift */; };
 		EDE584FF291E79610095DED1 /* LanguageDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE584FE291E79610095DED1 /* LanguageDetailViewModel.swift */; };
 		EDF2B0D2290952C500864091 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2B0CF290952C500864091 /* Router.swift */; };
 		EDF2B0D3290952C500864091 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF2B0D0290952C500864091 /* RequestManager.swift */; };
@@ -39,6 +42,7 @@
 		ED47D56929094A2B00BB32FA /* RingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingsView.swift; sourceTree = "<group>"; };
 		ED47D56B29094A2C00BB32FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED47D56E29094A2C00BB32FA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ED60CE63292B8630006B95FE /* LanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
 		EDC9071F291AA79100DEE3B7 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		EDC90723291AA87C00DEE3B7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		EDC9072A291AB27700DEE3B7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -51,9 +55,11 @@
 		EDC90739291D0A3500DEE3B7 /* RingShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingShape.swift; sourceTree = "<group>"; };
 		EDC90742291D456200DEE3B7 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		EDC90744291D4C8100DEE3B7 /* RingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingDetailView.swift; sourceTree = "<group>"; };
-		EDC90746291D594200DEE3B7 /* LanguagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesView.swift; sourceTree = "<group>"; };
+		EDC90746291D594200DEE3B7 /* RingLanguagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingLanguagesView.swift; sourceTree = "<group>"; };
 		EDC9074C291E607900DEE3B7 /* RingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingsViewModel.swift; sourceTree = "<group>"; };
 		EDC9074E291E635200DEE3B7 /* RingDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingDetailViewModel.swift; sourceTree = "<group>"; };
+		EDD2FC1129279F2500132D72 /* LanguagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesView.swift; sourceTree = "<group>"; };
+		EDD2FC132927A63400132D72 /* LanguagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesViewModel.swift; sourceTree = "<group>"; };
 		EDE584FE291E79610095DED1 /* LanguageDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageDetailViewModel.swift; sourceTree = "<group>"; };
 		EDF2B0CF290952C500864091 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		EDF2B0D0290952C500864091 /* RequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
@@ -133,6 +139,7 @@
 				EDC90735291D04C300DEE3B7 /* RingCell.swift */,
 				EDC90739291D0A3500DEE3B7 /* RingShape.swift */,
 				EDC90744291D4C8100DEE3B7 /* RingDetailView.swift */,
+				EDC90746291D594200DEE3B7 /* RingLanguagesView.swift */,
 			);
 			path = Ring;
 			sourceTree = "<group>";
@@ -141,7 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				EDC90733291CFCA800DEE3B7 /* LanguageDetailView.swift */,
-				EDC90746291D594200DEE3B7 /* LanguagesView.swift */,
+				EDD2FC1129279F2500132D72 /* LanguagesView.swift */,
+				ED60CE63292B8630006B95FE /* LanguageCell.swift */,
 			);
 			path = Language;
 			sourceTree = "<group>";
@@ -163,6 +171,7 @@
 				EDC9074C291E607900DEE3B7 /* RingsViewModel.swift */,
 				EDC9074E291E635200DEE3B7 /* RingDetailViewModel.swift */,
 				EDE584FE291E79610095DED1 /* LanguageDetailViewModel.swift */,
+				EDD2FC132927A63400132D72 /* LanguagesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -285,19 +294,22 @@
 				EDC90745291D4C8100DEE3B7 /* RingDetailView.swift in Sources */,
 				EDC9072D291AB2A100DEE3B7 /* Token.swift in Sources */,
 				EDE584FF291E79610095DED1 /* LanguageDetailViewModel.swift in Sources */,
+				EDD2FC1229279F2500132D72 /* LanguagesView.swift in Sources */,
 				EDC90724291AA87C00DEE3B7 /* LoginView.swift in Sources */,
 				EDF2B0D2290952C500864091 /* Router.swift in Sources */,
-				EDC90747291D594200DEE3B7 /* LanguagesView.swift in Sources */,
+				EDC90747291D594200DEE3B7 /* RingLanguagesView.swift in Sources */,
 				EDC9074D291E607900DEE3B7 /* RingsViewModel.swift in Sources */,
 				ED47D56829094A2B00BB32FA /* NetworkingExampleApp.swift in Sources */,
 				EDC9072F291AB46A00DEE3B7 /* Session.swift in Sources */,
 				EDC90736291D04C300DEE3B7 /* RingCell.swift in Sources */,
 				EDF2B0D3290952C500864091 /* RequestManager.swift in Sources */,
 				EDC90734291CFCA800DEE3B7 /* LanguageDetailView.swift in Sources */,
+				ED60CE64292B8630006B95FE /* LanguageCell.swift in Sources */,
 				EDC9074F291E635200DEE3B7 /* RingDetailViewModel.swift in Sources */,
 				EDC90738291D054200DEE3B7 /* Mocks.swift in Sources */,
 				EDC90731291BCCCD00DEE3B7 /* KeychainHelper.swift in Sources */,
 				EDF2B0D72909692C00864091 /* Ring.swift in Sources */,
+				EDD2FC142927A63400132D72 /* LanguagesViewModel.swift in Sources */,
 				EDC9072B291AB27700DEE3B7 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
