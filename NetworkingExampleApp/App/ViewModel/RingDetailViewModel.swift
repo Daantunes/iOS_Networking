@@ -25,16 +25,20 @@ class RingDetailViewModel: ObservableObject {
   }
 
   func generateLanguageViewModel(language: Language? = nil) -> LanguageDetailViewModel {
-    languageDetailViewModel = LanguageDetailViewModel(state: state, language: language)
+    languageDetailViewModel = LanguageDetailViewModel(language: language)
 
     languageDetailViewModel!.onSave = { [weak self] language in
       guard let self else { return }
 
       if let index = self.tempLanguages.firstIndex(where: { language.id == $0.id }) {
         self.tempLanguages[index] = language
-      } else {
-        self.tempLanguages.append(language)
       }
+    }
+
+    languageDetailViewModel!.onAdd = { [weak self] name in
+      guard let self else { return }
+      
+      self.tempLanguages.append(Language(id: UUID(), name: name))
     }
 
     return languageDetailViewModel!

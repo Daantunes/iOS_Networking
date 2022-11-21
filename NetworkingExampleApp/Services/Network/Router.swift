@@ -10,6 +10,7 @@ enum Router {
   case getRingLanguages(id: UUID)
   case updateRingLanguages(id: UUID, languages: [Language])
 
+  case languages
   case createLanguage(name:String, ringID: UUID)
   case updateLanguage(id: UUID, name: String)
   case deleteLanguage(id: UUID)
@@ -40,7 +41,7 @@ enum Router {
       case .getRingLanguages(let id), .updateRingLanguages(let id, _):
         return "/api/rings/\(id)/languages"
 
-      case .createLanguage:
+      case .languages, .createLanguage:
         return "/api/languages"
 
       case .updateLanguage(let id, _), .deleteLanguage(let id):
@@ -50,7 +51,7 @@ enum Router {
 
   var method: String {
     switch self {
-      case .rings, .getRingLanguages:
+      case .rings, .languages, .getRingLanguages:
         return "GET"
       case .createRing, .createLanguage, .login:
         return "POST"
