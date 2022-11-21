@@ -17,6 +17,7 @@ struct LanguagesView: View {
           }
         }
       }
+      .searchable(text: $viewModel.searchText, prompt: "Language")
     }
     .onAppear() {
       viewModel.getLanguages()

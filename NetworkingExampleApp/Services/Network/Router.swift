@@ -11,7 +11,8 @@ enum Router {
   case updateRingLanguages(id: UUID, languages: [Language])
 
   case languages
-  case createLanguage(name:String, ringID: UUID)
+  case searchLanguages(query: String)
+  case createLanguage(name: String, ringID: UUID)
   case updateLanguage(id: UUID, name: String)
   case deleteLanguage(id: UUID)
 
@@ -46,12 +47,15 @@ enum Router {
 
       case .updateLanguage(let id, _), .deleteLanguage(let id):
         return "/api/languages/\(id)"
+
+      case .searchLanguages:
+        return "/api/languages/search"
     }
   }
 
   var method: String {
     switch self {
-      case .rings, .languages, .getRingLanguages:
+      case .rings, .languages, .getRingLanguages, .searchLanguages:
         return "GET"
       case .createRing, .createLanguage, .login:
         return "POST"
@@ -104,12 +108,29 @@ enum Router {
     return header
   }
 
+  var queryParameters: [URLQueryItem] {
+    var parameters = [URLQueryItem]()
+
+    switch self {
+      case .searchLanguages(let query):
+        parameters.append(URLQueryItem(
+          name: "term",
+          value: query
+        ))
+      default:
+        break
+    }
+
+    return parameters
+  }
+
   func urlRequest() -> URLRequest? {
     var components = URLComponents()
     components.scheme = scheme
     components.host = domain
     components.port = port
     components.path = path
+    components.queryItems = queryParameters
 
     guard let url = components.url else {
       return nil

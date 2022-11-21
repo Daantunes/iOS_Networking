@@ -71,4 +71,12 @@ struct APIService {
   func deleteLanguage(id: UUID, completion: @escaping (Result<Void, RequestError>) -> Void) {
     requestManager.sendRequest(router: .deleteLanguage(id: id), completion: completion)
   }
+
+  func searchLanguages(query: String, completion: @escaping (Result<[Language], RequestError>) -> Void) {
+    requestManager.sendRequest(
+      router: .searchLanguages(query: query),
+      responseModel: [Language].self,
+      completion: completion
+    )
+  }
 }
