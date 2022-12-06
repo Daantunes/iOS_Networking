@@ -7,7 +7,7 @@ struct LanguagesView: View {
     VStack {
       List {
         ForEach(Array(viewModel.languages.enumerated()), id: \.offset) { index, language in
-          NavigationLink(destination: LanguageDetailView(viewModel: viewModel.generateViewModel(language: language))) {
+          NavigationLink(destination: LanguageDetailView(viewModel: viewModel.generateViewModel(language: language, showRingPicker: true))) {
             LanguageCell(languageName: language.name)
           }
         }
@@ -31,7 +31,7 @@ struct LanguagesView: View {
   }
 
   private var addButton: some View {
-    NavigationLink(destination: LanguageDetailView(viewModel: viewModel.generateViewModel())) {
+    NavigationLink(destination: LanguageDetailView(viewModel: viewModel.generateViewModel(showRingPicker: true))) {
       Image(systemName: "plus")
     }
   }

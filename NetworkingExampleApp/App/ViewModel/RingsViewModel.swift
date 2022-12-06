@@ -1,8 +1,13 @@
 import Foundation
 
 class RingsViewModel: ObservableObject {
+
+  // MARK: - Published Properties -
+
   @Published private(set) var rings: [Ring] = []
 
+  // MARK: - Public Methods -
+  
   func generateViewModel(ring: Ring? = nil) -> RingDetailViewModel {
     return RingDetailViewModel(ring: ring)
   }

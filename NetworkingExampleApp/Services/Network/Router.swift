@@ -13,8 +13,9 @@ enum Router {
   case languages
   case searchLanguages(query: String)
   case createLanguage(name: String, ringID: UUID)
-  case updateLanguage(id: UUID, name: String)
+  case updateLanguage(id: UUID, name: String, ringID: UUID)
   case deleteLanguage(id: UUID)
+  case getLanguageRing(id: UUID)
 
   var scheme: String {
     return "http"
@@ -45,17 +46,20 @@ enum Router {
       case .languages, .createLanguage:
         return "/api/languages"
 
-      case .updateLanguage(let id, _), .deleteLanguage(let id):
+      case .updateLanguage(let id, _, _), .deleteLanguage(let id):
         return "/api/languages/\(id)"
 
       case .searchLanguages:
         return "/api/languages/search"
+
+      case .getLanguageRing(let id):
+        return "/api/languages/\(id)/ring"
     }
   }
 
   var method: String {
     switch self {
-      case .rings, .languages, .getRingLanguages, .searchLanguages:
+      case .rings, .languages, .getRingLanguages, .getLanguageRing, .searchLanguages:
         return "GET"
       case .createRing, .createLanguage, .login:
         return "POST"
@@ -74,6 +78,12 @@ enum Router {
 
         return try? JSONSerialization.data(withJSONObject: data)
       case .createLanguage(let name, let ringID):
+        var data = [String:Any]()
+        data["name"] = name
+        data["ringID"] = "\(ringID)"
+
+        return try? JSONSerialization.data(withJSONObject: data)
+      case .updateLanguage(_, let name, let ringID):
         var data = [String:Any]()
         data["name"] = name
         data["ringID"] = "\(ringID)"

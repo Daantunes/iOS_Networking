@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED29E81B293E475E001A8081 /* DetailViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED29E81A293E475E001A8081 /* DetailViewState.swift */; };
+		ED29E81D293E4779001A8081 /* RingPickerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED29E81C293E4779001A8081 /* RingPickerState.swift */; };
 		ED47D56829094A2B00BB32FA /* NetworkingExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED47D56729094A2B00BB32FA /* NetworkingExampleApp.swift */; };
 		ED47D56A29094A2B00BB32FA /* RingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED47D56929094A2B00BB32FA /* RingsView.swift */; };
 		ED47D56C29094A2C00BB32FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED47D56B29094A2C00BB32FA /* Assets.xcassets */; };
 		ED47D56F29094A2C00BB32FA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED47D56E29094A2C00BB32FA /* Preview Assets.xcassets */; };
 		ED60CE64292B8630006B95FE /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED60CE63292B8630006B95FE /* LanguageCell.swift */; };
+		ED60CE69292CDFF7006B95FE /* RingPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED60CE68292CDFF7006B95FE /* RingPicker.swift */; };
 		EDC90720291AA79100DEE3B7 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC9071F291AA79100DEE3B7 /* Language.swift */; };
 		EDC90724291AA87C00DEE3B7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC90723291AA87C00DEE3B7 /* LoginView.swift */; };
 		EDC9072B291AB27700DEE3B7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC9072A291AB27700DEE3B7 /* User.swift */; };
@@ -37,12 +40,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED29E81A293E475E001A8081 /* DetailViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewState.swift; sourceTree = "<group>"; };
+		ED29E81C293E4779001A8081 /* RingPickerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingPickerState.swift; sourceTree = "<group>"; };
 		ED47D56429094A2B00BB32FA /* NetworkingExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkingExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED47D56729094A2B00BB32FA /* NetworkingExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingExampleApp.swift; sourceTree = "<group>"; };
 		ED47D56929094A2B00BB32FA /* RingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingsView.swift; sourceTree = "<group>"; };
 		ED47D56B29094A2C00BB32FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED47D56E29094A2C00BB32FA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ED60CE63292B8630006B95FE /* LanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
+		ED60CE68292CDFF7006B95FE /* RingPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingPicker.swift; sourceTree = "<group>"; };
 		EDC9071F291AA79100DEE3B7 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		EDC90723291AA87C00DEE3B7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		EDC9072A291AB27700DEE3B7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -140,6 +146,7 @@
 				EDC90739291D0A3500DEE3B7 /* RingShape.swift */,
 				EDC90744291D4C8100DEE3B7 /* RingDetailView.swift */,
 				EDC90746291D594200DEE3B7 /* RingLanguagesView.swift */,
+				ED60CE68292CDFF7006B95FE /* RingPicker.swift */,
 			);
 			path = Ring;
 			sourceTree = "<group>";
@@ -212,6 +219,8 @@
 				EDC9071F291AA79100DEE3B7 /* Language.swift */,
 				EDC9072A291AB27700DEE3B7 /* User.swift */,
 				EDC9072C291AB2A100DEE3B7 /* Token.swift */,
+				ED29E81A293E475E001A8081 /* DetailViewState.swift */,
+				ED29E81C293E4779001A8081 /* RingPickerState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -289,6 +298,8 @@
 				ED47D56A29094A2B00BB32FA /* RingsView.swift in Sources */,
 				EDC90743291D456200DEE3B7 /* APIService.swift in Sources */,
 				EDC9073A291D0A3500DEE3B7 /* RingShape.swift in Sources */,
+				ED29E81D293E4779001A8081 /* RingPickerState.swift in Sources */,
+				ED60CE69292CDFF7006B95FE /* RingPicker.swift in Sources */,
 				EDC90720291AA79100DEE3B7 /* Language.swift in Sources */,
 				EDF2B0D4290952C500864091 /* RequestError.swift in Sources */,
 				EDC90745291D4C8100DEE3B7 /* RingDetailView.swift in Sources */,
@@ -305,6 +316,7 @@
 				EDF2B0D3290952C500864091 /* RequestManager.swift in Sources */,
 				EDC90734291CFCA800DEE3B7 /* LanguageDetailView.swift in Sources */,
 				ED60CE64292B8630006B95FE /* LanguageCell.swift in Sources */,
+				ED29E81B293E475E001A8081 /* DetailViewState.swift in Sources */,
 				EDC9074F291E635200DEE3B7 /* RingDetailViewModel.swift in Sources */,
 				EDC90738291D054200DEE3B7 /* Mocks.swift in Sources */,
 				EDC90731291BCCCD00DEE3B7 /* KeychainHelper.swift in Sources */,

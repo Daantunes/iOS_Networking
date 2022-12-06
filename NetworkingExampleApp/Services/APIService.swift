@@ -60,9 +60,9 @@ struct APIService {
     )
   }
 
-  func updateLanguage(id: UUID, name: String, completion: @escaping (Result<Language, RequestError>) -> Void) {
+  func updateLanguage(id: UUID, name: String, ringID: UUID, completion: @escaping (Result<Language, RequestError>) -> Void) {
     requestManager.sendRequest(
-      router: .updateLanguage(id: id, name: name),
+      router: .updateLanguage(id: id, name: name, ringID: ringID),
       responseModel: Language.self,
       completion: completion
     )
@@ -78,5 +78,9 @@ struct APIService {
       responseModel: [Language].self,
       completion: completion
     )
+  }
+
+  func getLanguageRing(id: UUID, completion: @escaping (Result<Ring, RequestError>) -> Void) {
+    requestManager.sendRequest(router: .getLanguageRing(id: id), responseModel: Ring.self, completion: completion)
   }
 }
