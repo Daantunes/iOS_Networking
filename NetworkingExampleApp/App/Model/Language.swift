@@ -1,6 +1,6 @@
 import Foundation
 
-struct Language: Codable, Identifiable {
+struct Language: Codable, Identifiable, Hashable {
   let id: UUID
   let name: String
 }

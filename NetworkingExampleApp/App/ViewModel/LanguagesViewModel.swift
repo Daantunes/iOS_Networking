@@ -1,8 +1,13 @@
 import Foundation
 
 class LanguagesViewModel: ObservableObject {
+
+  // MARK: - Published Properties -
+
   @Published private(set) var languages: [Language] = []
   @Published var dismiss: Bool = false
+
+  // MARK: - Properties -
 
   var searchText = "" {
     didSet {
@@ -13,24 +18,32 @@ class LanguagesViewModel: ObservableObject {
   var languageDetailViewModel: LanguageDetailViewModel?
   private var debounce_timer:Timer?
 
-  func generateViewModel(language: Language? = nil) -> LanguageDetailViewModel {
-    languageDetailViewModel = LanguageDetailViewModel(language: language)
+  // MARK: - Public Methods -
 
-    languageDetailViewModel!.onSave = { language in
-      APIService.shared.updateLanguage(id: language.id, name: language.name) { completion in
-        switch completion {
-          case .success:
-            DispatchQueue.main.async {
-              if !self.dismiss { self.dismiss = true }
-            }
-          case .failure(let error):
-            print(error)
-        }
+  func generateViewModel(language: Language? = nil, showRingPicker: Bool = false) -> LanguageDetailViewModel {
+    languageDetailViewModel = LanguageDetailViewModel(language: language, showRingPicker: showRingPicker)
+
+    languageDetailViewModel!.onSave = { language, ringID in
+      APIService.shared.updateLanguage(id: language.id, name: language.name, ringID: ringID) { completion in
+        handleCompletion(completion: completion)
       }
     }
 
-    languageDetailViewModel!.onAdd = { name in
-      
+    languageDetailViewModel!.onAdd = { name, ringID in
+      APIService.shared.createLanguage(name: name, ringID: ringID) { completion in
+        handleCompletion(completion: completion)
+      }
+    }
+
+    func handleCompletion<T>(completion: Result<T, RequestError>) {
+      switch completion {
+        case .success:
+          DispatchQueue.main.async {
+            if !self.dismiss { self.dismiss = true }
+          }
+        case .failure(let failure):
+          print(failure)
+      }
     }
 
     return languageDetailViewModel!
@@ -60,12 +73,14 @@ class LanguagesViewModel: ObservableObject {
     }
   }
 
+  // MARK: - Private Methods -
+
   private func searchLanguage(query: String) {
     debounce_timer?.invalidate()
     debounce_timer = Timer.scheduledTimer(withTimeInterval: 0.4, repeats: false) { _ in
       APIService.shared.searchLanguages(query: query) { [weak self] completion in
         guard let self else { return }
-        
+
         DispatchQueue.main.async {
           switch completion {
             case .success(let languages):

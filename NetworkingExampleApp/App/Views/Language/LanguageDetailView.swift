@@ -12,7 +12,16 @@ struct LanguageDetailView: View {
       TextField("Enter language name...", text: $viewModel.languageName)
         .textFieldStyle(.roundedBorder)
         .disabled(viewModel.state == .read)
+      ringPickerView
+        .padding(.vertical)
+        .disabled(viewModel.state == .read)
       Spacer()
+    }
+    .onAppear {
+      if viewModel.showRingPicker {
+        viewModel.getRings()
+        viewModel.getRingID()
+      }
     }
     .padding()
     .onChange(of: viewModel.dismiss) {
@@ -28,6 +37,15 @@ struct LanguageDetailView: View {
           editButton
       }
     })
+  }
+
+  private var ringPickerView: some View {
+    switch viewModel.ringPickerState {
+      case .visible:
+        return AnyView(RingPicker(selectedRing: $viewModel.ringPickerState.ringID, rings: viewModel.rings))
+      case .hidden:
+        return AnyView(Text(""))
+    }
   }
 
   private var addButton: some View {
@@ -48,8 +66,6 @@ struct LanguageDetailView: View {
       viewModel.saveLanguage()
     }
   }
-
-
 }
 
 struct LanguageDetailView_Previews: PreviewProvider {

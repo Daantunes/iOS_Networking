@@ -1,21 +1,21 @@
 import Foundation
 
-enum DetailViewState {
-  case create
-  case edit
-  case read
-}
-
 class RingDetailViewModel: ObservableObject {
+
+  // MARK: - Published Properties -
+
   @Published var state: DetailViewState
   @Published var dismiss: Bool = false
   @Published var tempLanguages: [Language]
+
+  // MARK: - Properties -
 
   var languageDetailViewModel: LanguageDetailViewModel?
 
   let ring: Ring?
   var ringName: String
 
+  // MARK: - Lifecycle -
 
   init(ring: Ring?) {
     self.ring = ring
@@ -24,10 +24,12 @@ class RingDetailViewModel: ObservableObject {
     self.state = ring == nil ? .create : .read
   }
 
+  // MARK: - Public Methods -
+
   func generateLanguageViewModel(language: Language? = nil) -> LanguageDetailViewModel {
     languageDetailViewModel = LanguageDetailViewModel(language: language)
 
-    languageDetailViewModel!.onSave = { [weak self] language in
+    languageDetailViewModel!.onSave = { [weak self] language, _ in
       guard let self else { return }
 
       if let index = self.tempLanguages.firstIndex(where: { language.id == $0.id }) {
@@ -35,7 +37,7 @@ class RingDetailViewModel: ObservableObject {
       }
     }
 
-    languageDetailViewModel!.onAdd = { [weak self] name in
+    languageDetailViewModel!.onAdd = { [weak self] name, _ in
       guard let self else { return }
       
       self.tempLanguages.append(Language(id: UUID(), name: name))
@@ -46,14 +48,7 @@ class RingDetailViewModel: ObservableObject {
 
   func createRing() {
     APIService.shared.createRing(name: ringName) { completion in
-      switch completion {
-        case .success:
-          DispatchQueue.main.async {
-            self.dismiss = true
-          }
-        case .failure(let error):
-          print(error)
-      }
+      self.handleCompletion(completion: completion)
     }
   }
 
@@ -69,18 +64,13 @@ class RingDetailViewModel: ObservableObject {
     }
   }
 
+  // MARK: - Private Methods -
+
   private func updateRingName() {
     guard let ring else { return }
 
     APIService.shared.updateRing(id: ring.id, name: ringName) { completion in
-      switch completion {
-        case .success:
-          DispatchQueue.main.async {
-            if !self.dismiss { self.dismiss = true }
-          }
-        case .failure(let error):
-          print(error)
-      }
+      self.handleCompletion(completion: completion)
     }
   }
 
@@ -88,14 +78,18 @@ class RingDetailViewModel: ObservableObject {
     guard let ring else { return }
     
     APIService.shared.updateRingLanguages(ringID: ring.id, languages: tempLanguages) { completion in
-      switch completion {
-        case .success:
-          DispatchQueue.main.async {
-            if !self.dismiss { self.dismiss = true }
-          }
-        case .failure(let failure):
-          print(failure)
-      }
+      self.handleCompletion(completion: completion)
+    }
+  }
+
+  private func handleCompletion<T>(completion: Result<T, RequestError>) {
+    switch completion {
+      case .success:
+        DispatchQueue.main.async {
+          if !self.dismiss { self.dismiss = true }
+        }
+      case .failure(let failure):
+        print(failure)
     }
   }
 }
