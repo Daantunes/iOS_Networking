@@ -20,6 +20,24 @@ struct APIService {
     requestManager.sendRequest(router: .createRing(name: name), responseModel: Ring.self, completion: completion)
   }
 
+  func createRingWithLanguages(name: String, languages: [Language], completion: @escaping (Result<Void, RequestError>) -> Void) {
+    requestManager.sendRequest(router: .createRing(name: name), responseModel: Ring.self) { result in
+      switch result {
+        case .success(let ring):
+          requestManager.sendRequest(router: .updateRingLanguages(id: ring.id, languages: languages)) { result in
+            switch result {
+              case .success:
+                completion(.success(()))
+              case .failure(let error):
+                completion(.failure(error))
+            }
+          }
+        case .failure(let error):
+          completion(.failure(error))
+      }
+    }
+  }
+
   func updateRing(id: UUID, name: String, completion: @escaping (Result<Ring, RequestError>) -> Void) {
     requestManager.sendRequest(
       router: .updateRing(id: id, name: name),
