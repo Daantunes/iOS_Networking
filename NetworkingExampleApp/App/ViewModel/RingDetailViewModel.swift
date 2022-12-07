@@ -47,8 +47,14 @@ class RingDetailViewModel: ObservableObject {
   }
 
   func createRing() {
-    APIService.shared.createRing(name: ringName) { completion in
-      self.handleCompletion(completion: completion)
+    if tempLanguages.isEmpty {
+      APIService.shared.createRing(name: ringName) { completion in
+        self.handleCompletion(completion: completion)
+      }
+    } else {
+      APIService.shared.createRingWithLanguages(name: ringName, languages: tempLanguages) { completion in
+        self.handleCompletion(completion: completion)
+      }
     }
   }
 

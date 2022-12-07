@@ -28,14 +28,12 @@ struct RingLanguagesView: View {
       }
       .listStyle(.inset)
 
-      if viewModel.state == .edit {
-        Button(action: {}) {
-          NavigationLink(destination: LanguageDetailView(viewModel: viewModel.generateLanguageViewModel())) {
-            Text("Add Language")
-          }
+      Button(action: {}) {
+        NavigationLink(destination: LanguageDetailView(viewModel: viewModel.generateLanguageViewModel())) {
+          Text("Add Language")
         }
       }
-
+      
       Spacer()
     }
     .onAppear() {
