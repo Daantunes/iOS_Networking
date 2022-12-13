@@ -2,7 +2,8 @@ import Foundation
 
 struct APIService {
   static let shared = APIService()
-  private let requestManager = RequestManager()
+//  private let requestManager = RequestManager()
+  private let requestManager = RequestManagerWithAlamofire()
 
   func loginUser(username: String, password: String, completion: @escaping (Result<Token, RequestError>) -> Void) {
     requestManager.sendRequest(

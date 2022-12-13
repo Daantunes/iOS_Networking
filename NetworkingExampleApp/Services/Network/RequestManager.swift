@@ -100,7 +100,7 @@ extension RequestManager {
         return .failure(.unexpectedStatusCode(response.statusCode))
     }
 
-    return .failure(.unknown(data, response, error))
+    return .failure(.unknown(response))
   }
 
   private func handleResponse(data: Data?, response: URLResponse?, error: Error?) -> Result<Void, RequestError> {
@@ -132,6 +132,6 @@ extension RequestManager {
         return .failure(.unexpectedStatusCode(response.statusCode))
     }
 
-    return .failure(.unknown(data, response, error))
+    return .failure(.unknown(response))
   }
 }

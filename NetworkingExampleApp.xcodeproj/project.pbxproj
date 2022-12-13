@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED20BD8C294735D0005B2A55 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = ED20BD8B294735D0005B2A55 /* Alamofire */; };
+		ED20BD8E2947373F005B2A55 /* RequestManagerWithAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED20BD8D2947373F005B2A55 /* RequestManagerWithAlamofire.swift */; };
 		ED29E81B293E475E001A8081 /* DetailViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED29E81A293E475E001A8081 /* DetailViewState.swift */; };
 		ED29E81D293E4779001A8081 /* RingPickerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED29E81C293E4779001A8081 /* RingPickerState.swift */; };
 		ED47D56829094A2B00BB32FA /* NetworkingExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED47D56729094A2B00BB32FA /* NetworkingExampleApp.swift */; };
@@ -40,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED20BD8D2947373F005B2A55 /* RequestManagerWithAlamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManagerWithAlamofire.swift; sourceTree = "<group>"; };
 		ED29E81A293E475E001A8081 /* DetailViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewState.swift; sourceTree = "<group>"; };
 		ED29E81C293E4779001A8081 /* RingPickerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingPickerState.swift; sourceTree = "<group>"; };
 		ED47D56429094A2B00BB32FA /* NetworkingExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkingExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED20BD8C294735D0005B2A55 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +212,7 @@
 				EDF2B0D1290952C500864091 /* RequestError.swift */,
 				EDF2B0D0290952C500864091 /* RequestManager.swift */,
 				EDF2B0CF290952C500864091 /* Router.swift */,
+				ED20BD8D2947373F005B2A55 /* RequestManagerWithAlamofire.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -241,6 +246,9 @@
 			dependencies = (
 			);
 			name = NetworkingExampleApp;
+			packageProductDependencies = (
+				ED20BD8B294735D0005B2A55 /* Alamofire */,
+			);
 			productName = NetworkingExampleApp;
 			productReference = ED47D56429094A2B00BB32FA /* NetworkingExampleApp.app */;
 			productType = "com.apple.product-type.application";
@@ -269,6 +277,9 @@
 				Base,
 			);
 			mainGroup = ED47D55B29094A2B00BB32FA;
+			packageReferences = (
+				ED20BD8A294735D0005B2A55 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = ED47D56529094A2B00BB32FA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -302,6 +313,7 @@
 				ED60CE69292CDFF7006B95FE /* RingPicker.swift in Sources */,
 				EDC90720291AA79100DEE3B7 /* Language.swift in Sources */,
 				EDF2B0D4290952C500864091 /* RequestError.swift in Sources */,
+				ED20BD8E2947373F005B2A55 /* RequestManagerWithAlamofire.swift in Sources */,
 				EDC90745291D4C8100DEE3B7 /* RingDetailView.swift in Sources */,
 				EDC9072D291AB2A100DEE3B7 /* Token.swift in Sources */,
 				EDE584FF291E79610095DED1 /* LanguageDetailViewModel.swift in Sources */,
@@ -523,6 +535,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ED20BD8A294735D0005B2A55 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ED20BD8B294735D0005B2A55 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ED20BD8A294735D0005B2A55 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ED47D55C29094A2B00BB32FA /* Project object */;
 }
