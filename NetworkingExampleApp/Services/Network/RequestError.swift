@@ -9,5 +9,5 @@ enum RequestError: Error {
   case notFound
   case unexpectedStatusCode(_ code: Int)
   case unauthorized
-  case unknown(Data?, URLResponse, Error?)
+  case unknown(HTTPURLResponse?)
 }
