@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		ED20BD8C294735D0005B2A55 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = ED20BD8B294735D0005B2A55 /* Alamofire */; };
 		ED20BD8E2947373F005B2A55 /* RequestManagerWithAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED20BD8D2947373F005B2A55 /* RequestManagerWithAlamofire.swift */; };
+		ED20BD922948896A005B2A55 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = ED20BD912948896A005B2A55 /* Moya */; };
+		ED20BD9429488A24005B2A55 /* RouterWithMoya.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED20BD9329488A24005B2A55 /* RouterWithMoya.swift */; };
+		ED20BD9A29489544005B2A55 /* RequestManagerWithMoya.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED20BD9929489544005B2A55 /* RequestManagerWithMoya.swift */; };
 		ED29E81B293E475E001A8081 /* DetailViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED29E81A293E475E001A8081 /* DetailViewState.swift */; };
 		ED29E81D293E4779001A8081 /* RingPickerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED29E81C293E4779001A8081 /* RingPickerState.swift */; };
 		ED47D56829094A2B00BB32FA /* NetworkingExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED47D56729094A2B00BB32FA /* NetworkingExampleApp.swift */; };
@@ -43,6 +46,8 @@
 
 /* Begin PBXFileReference section */
 		ED20BD8D2947373F005B2A55 /* RequestManagerWithAlamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManagerWithAlamofire.swift; sourceTree = "<group>"; };
+		ED20BD9329488A24005B2A55 /* RouterWithMoya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterWithMoya.swift; sourceTree = "<group>"; };
+		ED20BD9929489544005B2A55 /* RequestManagerWithMoya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManagerWithMoya.swift; sourceTree = "<group>"; };
 		ED29E81A293E475E001A8081 /* DetailViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewState.swift; sourceTree = "<group>"; };
 		ED29E81C293E4779001A8081 /* RingPickerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingPickerState.swift; sourceTree = "<group>"; };
 		ED47D56429094A2B00BB32FA /* NetworkingExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkingExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED20BD922948896A005B2A55 /* Moya in Frameworks */,
 				ED20BD8C294735D0005B2A55 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,6 +219,8 @@
 				EDF2B0D0290952C500864091 /* RequestManager.swift */,
 				EDF2B0CF290952C500864091 /* Router.swift */,
 				ED20BD8D2947373F005B2A55 /* RequestManagerWithAlamofire.swift */,
+				ED20BD9329488A24005B2A55 /* RouterWithMoya.swift */,
+				ED20BD9929489544005B2A55 /* RequestManagerWithMoya.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -248,6 +256,7 @@
 			name = NetworkingExampleApp;
 			packageProductDependencies = (
 				ED20BD8B294735D0005B2A55 /* Alamofire */,
+				ED20BD912948896A005B2A55 /* Moya */,
 			);
 			productName = NetworkingExampleApp;
 			productReference = ED47D56429094A2B00BB32FA /* NetworkingExampleApp.app */;
@@ -279,6 +288,7 @@
 			mainGroup = ED47D55B29094A2B00BB32FA;
 			packageReferences = (
 				ED20BD8A294735D0005B2A55 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				ED20BD902948896A005B2A55 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = ED47D56529094A2B00BB32FA /* Products */;
 			projectDirPath = "";
@@ -318,6 +328,8 @@
 				EDC9072D291AB2A100DEE3B7 /* Token.swift in Sources */,
 				EDE584FF291E79610095DED1 /* LanguageDetailViewModel.swift in Sources */,
 				EDD2FC1229279F2500132D72 /* LanguagesView.swift in Sources */,
+				ED20BD9A29489544005B2A55 /* RequestManagerWithMoya.swift in Sources */,
+				ED20BD9429488A24005B2A55 /* RouterWithMoya.swift in Sources */,
 				EDC90724291AA87C00DEE3B7 /* LoginView.swift in Sources */,
 				EDF2B0D2290952C500864091 /* Router.swift in Sources */,
 				EDC90747291D594200DEE3B7 /* RingLanguagesView.swift in Sources */,
@@ -545,6 +557,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		ED20BD902948896A005B2A55 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -552,6 +572,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = ED20BD8A294735D0005B2A55 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		ED20BD912948896A005B2A55 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ED20BD902948896A005B2A55 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
