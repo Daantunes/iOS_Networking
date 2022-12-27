@@ -5,6 +5,7 @@ enum RequestError: Error {
   case decodeFailed
   case error(Error)
   case invalidURL
+  case noData
   case noResponse
   case notFound
   case unexpectedStatusCode(_ code: Int)
